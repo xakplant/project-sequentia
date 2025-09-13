@@ -1,0 +1,23 @@
+{
+  "name": "project-sequentia",
+  "version": "0.0.1",
+  "description": "secret",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.16.0",
+    "npm": ">=9.5.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xakplant/project-sequentia.git"
+  },
+  "author": "Boris Cherepanov",
+  "license": "SEE LICENSE IN LOCENSE",
+  "bugs": {
+    "url": "https://github.com/xakplant/project-sequentia/issues"
+  },
+  "homepage": "https://github.com/xakplant/project-sequentia#readme"
+}
