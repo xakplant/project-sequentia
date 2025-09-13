@@ -8,6 +8,9 @@
     "npm": ">=9.5.1"
   },
   "scripts": {
+    "start": "node build/app.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "tsc",
     "test": "test"
   },
   "repository": {
@@ -15,9 +18,22 @@
     "url": "git+https://github.com/xakplant/project-sequentia.git"
   },
   "author": "Boris Cherepanov",
-  "license": "SEE LICENSE IN LOCENSE",
+  "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/xakplant/project-sequentia/issues"
   },
-  "homepage": "https://github.com/xakplant/project-sequentia#readme"
+  "homepage": "https://github.com/xakplant/project-sequentia#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sequelize": "^6.37.7",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.3",
+    "@types/sequelize": "^6.12.0",
+    "nodemon": "^3.1.10",
+    "sqlite3": "^5.1.7",
+    "ts-node": "^10.9.2"
+  }
 }
