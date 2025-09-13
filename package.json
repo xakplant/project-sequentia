@@ -4,8 +4,8 @@
   "description": "secret",
   "main": "index.js",
   "engines": {
-    "node": ">=18.16.0",
-    "npm": ">=9.5.1"
+    "node": ">=20.19.5",
+    "npm": ">=10.8.2"
   },
   "scripts": {
     "start": "node build/app.js",
