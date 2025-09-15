@@ -3,16 +3,20 @@
   "version": "0.0.1",
   "description": "secret",
   "main": "index.js",
+  "type": "module",
   "engines": {
     "node": ">=20.19.5",
     "npm": ">=10.8.2"
   },
   "scripts": {
     "start": "node build/app.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "tsc",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'tsx' src/server.ts",
     "test": "test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node server"
   },
   "repository": {
     "type": "git",
@@ -25,22 +29,33 @@
   },
   "homepage": "https://github.com/xakplant/project-sequentia#readme",
   "dependencies": {
+    "compression": "^1.8.1",
     "express": "^5.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sequelize": "^6.37.7",
+    "sirv": "^3.0.2",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@types/compression": "^1.8.1",
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.3",
+    "@types/react": "^18.3.24",
+    "@types/react-dom": "^18.3.7",
     "@types/sequelize": "^6.12.0",
+    "@vitejs/plugin-react": "^5.0.2",
+    "cross-env": "^10.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "nodemon": "^3.1.10",
     "prettier": "3.6.2",
     "sqlite3": "^5.1.7",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "vite": "^7.1.5"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

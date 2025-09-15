@@ -5,6 +5,8 @@ import { initModels } from './models';
 const app = express();
 const port = 3000;
 
+const MY_CONST = true;
+
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World');
 });
