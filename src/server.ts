@@ -16,7 +16,7 @@ const base = process.env.BASE || '/';
 
 // Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile('./dist/client/index.html', 'utf-8')
+  ? await fs.readFile(path.resolve(__dirname, 'index.html'), 'utf-8')
   : '';
 
 // Create http server
@@ -40,6 +40,8 @@ if (!isProduction) {
   app.use(base, sirv('./dist/client', { extensions: [] }));
 }
 
+app.use(express.static(path.join(__dirname, 'dist')));
+
 // Serve HTML
 app.use('*all', async (req: Request, res: Response) => {
   try {
@@ -57,8 +59,7 @@ app.use('*all', async (req: Request, res: Response) => {
         'utf-8',
       );
       template = await vite?.transformIndexHtml(url, template);
-      render = (await vite?.ssrLoadModule('/src/client/entry-server.tsx'))
-        ?.render;
+      render = (await vite?.ssrLoadModule('client/entry-server.tsx'))?.render;
     } else {
       template = templateHtml;
       // @ts-ignore
