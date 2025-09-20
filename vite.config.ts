@@ -2,7 +2,6 @@ import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import wyw from '@wyw-in-js/vite';
-// @ts-ignore
 import { pluginSsrDevFoucFix } from './src/plugins/vite-css-plugin';
 
 // https://vite.dev/config/
